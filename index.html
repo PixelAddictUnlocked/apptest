@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ArmourCare | Wellbeing Questionnaire</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="device-shell">
+<header class="hero">
+<div class="hero-intro">
+<div class="hero-icon">
+<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+</svg>
+</div>
+<h1>PSYCHOLOGY QUESTIONNAIRE</h1>
+</div>
+<div class="hero-meta">
+<div>
+<p class="meta-label">Answered</p>
+<p class="meta-value">
+<span data-answered>0</span>/<span data-total>0</span>
+</p>
+</div>
+<div>
+<p class="meta-label">Updated</p>
+<p class="meta-value">Jan 2026</p>
+</div>
+</div>
+</header>
+<main id="questionnaire" class="questionnaire" aria-live="polite"></main>
+<footer class="action-bar action-bar--compact" data-action-bar aria-live="polite">
+<div class="action-content">
+<p class="action-title">Review & Submit</p>
+<p class="action-caption">
+Complete every prompt, then share securely with your clinician.
+</p>
+<div class="progress-pill">
+<div class="progress-meta">
+<span class="progress-percent" data-progress-percent>0%</span>
+<span class="progress-label" data-progress-label>0 of 0 complete</span>
+</div>
+<div class="progress-track" role="progressbar" aria-valuemin="0" aria-valuenow="0" aria-valuemax="100" aria-live="polite">
+<div class="progress-fill" data-progress-fill></div>
+</div>
+</div>
+</div>
+<button class="primary-btn" type="button" data-submit-btn>Submit Report</button>
+</footer>
+</div>
+<script type="module" src="app.js"></script>
+</body>
+</html>

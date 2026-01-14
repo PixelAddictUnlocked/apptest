@@ -1,0 +1,87 @@
+{
+  "title": "PSYCHOLOGY QUESTIONNAIRE",
+  "description": "4 Pillars - SLEEP / BURNOUT / MENTAL WELLBEING / LIFESTYLE",
+  "categories": {
+    "burnout_assessment": {
+      "title": "BURNOUT ASSESSMENT TOOL",
+      "description": "Measures current burnout indicators including exhaustion, motivation, focus, and emotional regulation.",
+      "questions": [
+        "I feel mentally exhausted",
+        "At the end of the day, I find it hard to recover my energy",
+        "I feel physically exhausted",
+        "I struggle to find any enthusiasm for my work",
+        "I have trouble staying focused",
+        "I have trouble concentrating",
+        "I feel unable to control my emotions",
+        "I may overreact unintentionally"
+      ]
+    },
+    "mental_wellbeing": {
+      "title": "MENTAL WELLBEING",
+      "description": "Explores day-to-day mood, optimism, clarity, relationships, and overall mental resilience.",
+      "questions": [
+        "I've been feeling optimistic about the future",
+        "I've been feeling useful",
+        "I've been dealing with problems well",
+        "I've been thinking clearly",
+        "I've been feeling close to people"
+      ]
+    },
+    "sleep": {
+      "title": "SLEEP",
+      "description": "Evaluates sleep schedule consistency, duration, awakenings, and subjective sleep quality.",
+      "questions": [
+        "I've been going to sleep and waking up about the same time every day",
+        "I sleep 7-9hrs per night",
+        "I am awake for less than 30mins between the time I go to bed and the time I get out of bed",
+        "I stay awake all day without dozing",
+        "How long does it take to fall asleep?",
+        "How many nights per week do you awaken in the middle of the night",
+        "If you wake up during the night, how long are you awake for",
+        "How would you rate your sleep quality?",
+        "I am satisfied with my sleep"
+      ]
+    },
+    "lifestyle_wellbeing": {
+      "title": "LIFESTYLE & WELLBEING",
+      "description": "Looks at physical habits, nourishment, workload balance, social connections, and financial wellbeing.",
+      "subcategories": {
+        "physical_health_activity": {
+          "title": "Physical Health & Activity",
+          "description": "Focuses on frequency and structure of intentional physical exercise.",
+          "questions": [
+            "How often have you engaged in structured physical activity (gym, sport, running) this month?"
+          ]
+        },
+        "nutrition_hydration_substance": {
+          "title": "Nutrition, Hydration & Substance Use",
+          "description": "Reviews nutrition quality, hydration consistency, and alcohol consumption habits.",
+          "questions": [
+            "How would you rate your overall nutrition this month (meal quality and balance)?",
+            "How consistently have you stayed hydrated each day?",
+            "How often have you consumed alcohol this month?"
+          ]
+        },
+        "workload_travel_environment": {
+          "title": "Workload, Travel & Environment",
+          "description": "Examines travel demands and how the work environment affects overall balance.",
+          "questions": [
+            "How many nights have you spent away from home this month?",
+            "How much has work-related travel away from home impacted your wellbeing?",
+            "How manageable has your overall workload felt this month?"
+          ]
+        },
+        "social_family_financial": {
+          "title": "Social, Family & Financial Wellbeing",
+          "description": "Assesses support networks, personal time, financial stress, and holistic wellbeing.",
+          "questions": [
+            "How connected and supportive have you felt to your family or close friends?",
+            "How much time have you had for personal interests or hobbies outside work?",
+            "How much have financial pressures affected you this month?",
+            "How would you rate your overall sense of wellbeing this month?"
+          ]
+        }
+      }
+    }
+  }
+}
