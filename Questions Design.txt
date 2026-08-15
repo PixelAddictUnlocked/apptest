@@ -1,0 +1,35 @@
+Scoring Design
+Principle: Every question gets 3 options, scored 1, 2, 3. Each question has a polarity — whether a higher value means better or worse wellbeing. The final wellbeing score is always 0–100% where 100% = best wellbeing.
+
+Here's the polarity analysis for every question:
+
+Burnout (all negative — higher = worse)
+"I feel mentally exhausted" → Never(1)=good, Sometimes(3)=bad → negative
+All 8 burnout questions use agreement_5 and are negative statements → negative
+Mental Wellbeing (all positive — higher = better)
+"I've been feeling optimistic" → Never(1)=bad, Sometimes(3)=good → positive
+All 5 mental questions are positive statements → positive
+
+Sleep (mixed)
+"I've been going to sleep same time" → agreement, positive
+"I sleep 7-9hrs" → agreement, positive
+"I am awake for less than 30mins..." → agreement, positive
+"I stay awake all day without dozing" → agreement, positive
+"How long to fall asleep?" → time_duration, negative (longer = worse)
+"How many nights do you awaken?" → nights_per_week, negative (more = worse)
+"How long are you awake for?" → time_duration, negative (longer = worse)
+"Rate your sleep quality?" → rating, positive
+"I am satisfied with my sleep" → agreement, positive
+
+Lifestyle (mixed)
+"Physical activity frequency" → frequency, positive (more = better)
+"Rate nutrition" → rating, positive
+"Stayed hydrated" → agreement, positive
+"Alcohol consumption" → frequency, negative (more = worse)
+"Nights away from home" → nights_away, negative (more = worse)
+"Travel impact on wellbeing" → slider, negative (higher impact = worse)
+"Workload manageable" → rating, positive
+"Connected to family/friends" → rating, positive
+"Time for hobbies" → rating, positive
+"Financial pressures" → slider, negative (more pressure = worse)
+"Overall wellbeing" → rating, positive

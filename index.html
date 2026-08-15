@@ -1,58 +1,573 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>ArmourCare | Wellbeing Questionnaire</title>
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-<div class="device-shell">
-<header class="hero">
-<div class="hero-intro">
-<div class="hero-icon">
-<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-<path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-</svg>
-</div>
-<h1>PSYCHOLOGY QUESTIONNAIRE</h1>
-</div>
-<div class="hero-meta">
-<div>
-<p class="meta-label">Answered</p>
-<p class="meta-value">
-<span data-answered>0</span>/<span data-total>0</span>
-</p>
-</div>
-<div>
-<p class="meta-label">Updated</p>
-<p class="meta-value">Jan 2026</p>
-</div>
-</div>
-</header>
-<main id="questionnaire" class="questionnaire" aria-live="polite"></main>
-<footer class="action-bar action-bar--compact" data-action-bar aria-live="polite">
-<div class="action-content">
-<p class="action-title">Review & Submit</p>
-<p class="action-caption">
-Complete every prompt, then share securely with your clinician.
-</p>
-<div class="progress-pill">
-<div class="progress-meta">
-<span class="progress-percent" data-progress-percent>0%</span>
-<span class="progress-label" data-progress-label>0 of 0 complete</span>
-</div>
-<div class="progress-track" role="progressbar" aria-valuemin="0" aria-valuenow="0" aria-valuemax="100" aria-live="polite">
-<div class="progress-fill" data-progress-fill></div>
-</div>
-</div>
-</div>
-<button class="primary-btn" type="button" data-submit-btn>Submit Report</button>
-</footer>
-</div>
-<script type="module" src="app.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover"
+    />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta name="apple-mobile-web-app-title" content="Armour Care" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="theme-color" content="#050505" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Armour Care</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css?v=7" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/icons/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="/icons/icon-192x192.png"
+    />
+    <link rel="manifest" href="/manifest.json" />
+  </head>
+  <body>
+    <div id="splash" class="splash">
+      <div class="splash-content">
+        <div class="splash-icon">
+          <span class="ac-logo ac-logo-lg">AC</span>
+        </div>
+        <h1 class="splash-title">Armour Care</h1>
+        <p class="splash-subtitle">Wellbeing Questionnaire</p>
+        <div class="splash-loader"></div>
+      </div>
+    </div>
+
+    <!-- Auth Screen -->
+    <div id="auth-screen" class="auth-screen hidden">
+      <div class="auth-container">
+        <div class="auth-header">
+          <div class="auth-icon">
+            <span class="ac-logo ac-logo-md">AC</span>
+          </div>
+          <h1 class="auth-title">Armour Care</h1>
+        </div>
+
+        <!-- Login Form -->
+        <form id="login-form" class="auth-form">
+          <h2 class="form-title">Welcome Back</h2>
+          <div class="form-field">
+            <label for="login-armour">Armour Number</label>
+            <input
+              type="text"
+              id="login-armour"
+              placeholder="C0000-000"
+              autocomplete="username"
+              required
+            />
+          </div>
+          <div class="form-field">
+            <label for="login-password">Password</label>
+            <input
+              type="password"
+              id="login-password"
+              placeholder="Enter password"
+              autocomplete="current-password"
+              required
+            />
+          </div>
+          <div class="auth-error" data-login-error></div>
+          <button type="submit" class="auth-btn primary-btn">Sign In</button>
+          <p class="auth-switch">
+            New user?
+            <button type="button" data-show-signup>Create Account</button>
+          </p>
+        </form>
+
+        <!-- Signup Form -->
+        <form id="signup-form" class="auth-form hidden">
+          <h2 class="form-title">Create Account</h2>
+          <div class="form-field">
+            <label for="signup-armour">Armour Number</label>
+            <input
+              type="text"
+              id="signup-armour"
+              placeholder="C0000-000"
+              autocomplete="username"
+              required
+            />
+            <p class="field-hint">Enter your assigned Armour number</p>
+          </div>
+          <div class="form-field">
+            <label>Select Your Team</label>
+            <div class="auth-team-selector">
+              <button
+                type="button"
+                class="auth-team-option"
+                data-signup-team="1"
+                title="1"
+              >
+                1
+              </button>
+              <button
+                type="button"
+                class="auth-team-option"
+                data-signup-team="2"
+                title="2"
+              >
+                2
+              </button>
+              <button
+                type="button"
+                class="auth-team-option"
+                data-signup-team="3"
+                title="3"
+              >
+                3
+              </button>
+              <button
+                type="button"
+                class="auth-team-option"
+                data-signup-team="4"
+                title="4"
+              >
+                4
+              </button>
+              <button
+                type="button"
+                class="auth-team-option"
+                data-signup-team="5"
+                title="5"
+              >
+                5
+              </button>
+              <button
+                type="button"
+                class="auth-team-option"
+                data-signup-team="6"
+                title="6"
+              >
+                6
+              </button>
+              <button
+                type="button"
+                class="auth-team-option"
+                data-signup-team="7"
+                title="7"
+              >
+                7
+              </button>
+              <button
+                type="button"
+                class="auth-team-option"
+                data-signup-team="8"
+                title="8"
+              >
+                8
+              </button>
+              <button
+                type="button"
+                class="auth-team-option"
+                data-signup-team="9"
+                title="9"
+              >
+                9
+              </button>
+              <button
+                type="button"
+                class="auth-team-option"
+                data-signup-team="10"
+                title="10"
+              >
+                10
+              </button>
+              <button
+                type="button"
+                class="auth-team-option"
+                data-signup-team="11"
+                title="11"
+              >
+                11
+              </button>
+              <button
+                type="button"
+                class="auth-team-option"
+                data-signup-team="12"
+                title="12"
+              >
+                12
+              </button>
+              <button
+                type="button"
+                class="auth-team-option"
+                data-signup-team="13"
+                title="13"
+              >
+                13
+              </button>
+              <button
+                type="button"
+                class="auth-team-option"
+                data-signup-team="14"
+                title="14"
+              >
+                14
+              </button>
+            </div>
+            <div class="selected-team-label" data-signup-team-label>
+              Select a team
+            </div>
+          </div>
+          <div class="form-field hidden" data-subteam-field>
+            <label>Select Your Sub-Team</label>
+            <div class="auth-team-selector">
+              <button
+                type="button"
+                class="auth-team-option"
+                data-signup-subteam="a"
+                title="2A"
+              >
+                A
+              </button>
+              <button
+                type="button"
+                class="auth-team-option"
+                data-signup-subteam="b"
+                title="2B"
+              >
+                B
+              </button>
+              <button
+                type="button"
+                class="auth-team-option"
+                data-signup-subteam="c"
+                title="2C"
+              >
+                C
+              </button>
+              <button
+                type="button"
+                class="auth-team-option"
+                data-signup-subteam="d"
+                title="2D"
+              >
+                D
+              </button>
+              <button
+                type="button"
+                class="auth-team-option"
+                data-signup-subteam="e"
+                title="2E"
+              >
+                E
+              </button>
+              <button
+                type="button"
+                class="auth-team-option"
+                data-signup-subteam="f"
+                title="2F"
+              >
+                F
+              </button>
+              <button
+                type="button"
+                class="auth-team-option"
+                data-signup-subteam="g"
+                title="2G"
+              >
+                G
+              </button>
+              <button
+                type="button"
+                class="auth-team-option"
+                data-signup-subteam="h"
+                title="2H"
+              >
+                H
+              </button>
+              <button
+                type="button"
+                class="auth-team-option"
+                data-signup-subteam="i"
+                title="2I"
+              >
+                I
+              </button>
+              <button
+                type="button"
+                class="auth-team-option"
+                data-signup-subteam="j"
+                title="2J"
+              >
+                J
+              </button>
+            </div>
+            <div class="selected-team-label" data-signup-subteam-label>
+              Select a sub-team
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="signup-password">Create Password</label>
+            <input
+              type="password"
+              id="signup-password"
+              placeholder="Min 4 characters"
+              autocomplete="new-password"
+              required
+              minlength="4"
+            />
+          </div>
+          <div class="form-field">
+            <label for="signup-confirm">Confirm Password</label>
+            <input
+              type="password"
+              id="signup-confirm"
+              placeholder="Confirm password"
+              autocomplete="new-password"
+              required
+              minlength="4"
+            />
+          </div>
+          <div class="auth-error" data-signup-error></div>
+          <button type="submit" class="auth-btn primary-btn">
+            Create Account
+          </button>
+          <p class="auth-switch">
+            Already have an account?
+            <button type="button" data-show-login>Sign In</button>
+          </p>
+        </form>
+      </div>
+    </div>
+    <div class="device-shell hidden">
+      <header class="hero">
+        <div class="hero-intro">
+          <div class="hero-icon">
+            <span class="ac-logo ac-logo-sm">AC</span>
+          </div>
+          <h1>PSYCHOLOGY QUESTIONNAIRE</h1>
+        </div>
+        <button class="menu-btn" data-menu-btn aria-label="Open menu">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="12" cy="12" r="1"></circle>
+            <circle cx="12" cy="5" r="1"></circle>
+            <circle cx="12" cy="19" r="1"></circle>
+          </svg>
+        </button>
+      </header>
+
+      <!-- Profile Menu -->
+      <div class="menu-overlay" data-menu-overlay></div>
+      <div class="profile-menu" data-profile-menu>
+        <div class="menu-header">
+          <div class="header-profile">
+            <div class="profile-armour" data-armour-number>-</div>
+            <div class="profile-team-badge" data-menu-team>-</div>
+          </div>
+          <button class="menu-close" data-menu-close aria-label="Close menu">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+
+        <div class="menu-body">
+          <!-- Submission Status -->
+          <div class="submission-status" data-submission-status>
+            <div class="status-indicator" data-status-indicator></div>
+            <div class="status-text">
+              <div class="status-title" data-status-title>Survey Pending</div>
+              <div class="status-subtitle" data-status-subtitle>
+                Due by end of month
+              </div>
+            </div>
+          </div>
+
+          <!-- Team Stats -->
+          <div class="section-block">
+            <h3 class="section-title">
+              Team Wellbeing <span class="month-label" data-month-label></span>
+            </h3>
+            <div class="stats-grid">
+              <div class="stat-item">
+                <div class="stat-value" data-team-status>--</div>
+                <div class="stat-label" data-team-wellbeing>--</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-value" data-team-submitted>--</div>
+                <div class="stat-label">Submitted</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Radar Chart (Personal) -->
+          <div class="section-block">
+            <h3 class="section-title">Your Section Breakdown</h3>
+            <div class="radar-chart-container">
+              <canvas id="radar-chart" width="240" height="240"></canvas>
+            </div>
+            <div class="radar-legend">
+              <div class="legend-item">
+                <span
+                  class="legend-dot"
+                  style="background: rgba(100, 200, 150, 0.8)"
+                ></span
+                >Burnout
+              </div>
+              <div class="legend-item">
+                <span
+                  class="legend-dot"
+                  style="background: rgba(100, 150, 255, 0.8)"
+                ></span
+                >Mental
+              </div>
+              <div class="legend-item">
+                <span
+                  class="legend-dot"
+                  style="background: rgba(255, 180, 100, 0.8)"
+                ></span
+                >Sleep
+              </div>
+              <div class="legend-item">
+                <span
+                  class="legend-dot"
+                  style="background: rgba(200, 100, 200, 0.8)"
+                ></span
+                >Lifestyle
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Notification Toggle + Sign Out -->
+        <div class="menu-footer">
+          <div class="notif-toggle-row" id="notif-toggle-row">
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+              <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+            </svg>
+            <span class="notif-toggle-label">Notifications</span>
+            <span class="notif-toggle-status" data-notif-status></span>
+            <span
+              class="notif-toggle-btn active"
+              id="notif-toggle-btn"
+              role="switch"
+              aria-checked="true"
+              tabindex="0"
+            >
+              <span class="notif-toggle-knob"></span>
+            </span>
+          </div>
+          <button type="button" class="logout-btn" data-logout-btn>
+            Sign Out
+          </button>
+        </div>
+      </div>
+      <main id="questionnaire" class="questionnaire" aria-live="polite"></main>
+
+      <!-- Questionnaire Completed Screen -->
+      <div id="questionnaire-completed" class="questionnaire-completed hidden">
+        <div class="completed-content">
+          <div class="completed-icon">
+            <svg
+              width="64"
+              height="64"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+              <polyline points="22 4 12 14.01 9 11.01"></polyline>
+            </svg>
+          </div>
+          <h2 class="completed-title">Questionnaire Complete</h2>
+          <p class="completed-subtitle">
+            Thank you for completing this month's wellbeing questionnaire.
+          </p>
+          <div class="completed-info">
+            <div class="info-item">
+              <span class="info-label">Submitted</span>
+              <span class="info-value" data-submitted-date>-</span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Next Questionnaire</span>
+              <span class="info-value" data-next-questionnaire>-</span>
+            </div>
+          </div>
+          <p class="completed-note">
+            Your responses have been recorded securely. Open your profile to see
+            your personal breakdown and team wellbeing stats.
+          </p>
+        </div>
+      </div>
+      <footer class="action-bar" data-action-bar aria-live="polite">
+        <div class="action-content">
+          <p class="action-title">Review & Submit</p>
+          <p class="action-caption">
+            Complete every prompt, then share securely with your clinician.
+          </p>
+          <div class="progress-pill">
+            <div class="progress-meta">
+              <span class="progress-percent" data-progress-percent>0%</span>
+              <span class="progress-label" data-progress-label
+                >0 of 0 complete</span
+              >
+            </div>
+            <div
+              class="progress-track"
+              role="progressbar"
+              aria-valuemin="0"
+              aria-valuenow="0"
+              aria-valuemax="100"
+              aria-live="polite"
+            >
+              <div class="progress-fill" data-progress-fill></div>
+            </div>
+          </div>
+        </div>
+        <button class="primary-btn" type="button" data-submit-btn>
+          Submit Report
+        </button>
+      </footer>
+    </div>
+    <script type="module" src="app.js?v=42"></script>
+  </body>
 </html>

@@ -1,0 +1,17 @@
+node_modules/
+venv/
+backups/
+.DS_Store
+
+# Secrets
+.jwt-secret
+
+# Live data (server is source of truth)
+users.json
+admins.json
+submissions.json
+security-log.json
+notifications.json
+push-subscriptions.json
+auto-notif-config.json
+questions.json.backup

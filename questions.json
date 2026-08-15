@@ -1,87 +1,507 @@
 {
   "title": "PSYCHOLOGY QUESTIONNAIRE",
   "description": "4 Pillars - SLEEP / BURNOUT / MENTAL WELLBEING / LIFESTYLE",
+  "responsePresets": {
+    "agreement_5": {
+      "name": "LS&W Agreement ",
+      "type": "buttons",
+      "options": [
+        {
+          "label": "Hard",
+          "value": 1
+        },
+        {
+          "label": "OK",
+          "value": 1
+        },
+        {
+          "label": "Easy",
+          "value": 2
+        }
+      ]
+    },
+    "frequency_5": {
+      "name": "Frequency S&C",
+      "type": "buttons",
+      "options": [
+        {
+          "label": "Never",
+          "value": 1
+        },
+        {
+          "label": "1-8 times",
+          "value": 2
+        },
+        {
+          "label": "9+",
+          "value": 3
+        }
+      ]
+    },
+    "rating_5": {
+      "name": "Nutrition Rating",
+      "type": "buttons",
+      "options": [
+        {
+          "label": "Poor",
+          "value": 1
+        },
+        {
+          "label": "Average",
+          "value": 2
+        },
+        {
+          "label": "Good",
+          "value": 3
+        }
+      ]
+    },
+    "nights_away": {
+      "name": "Nights Away",
+      "type": "buttons",
+      "options": [
+        {
+          "label": "0 nights",
+          "value": 3
+        },
+        {
+          "label": "1-7 nights",
+          "value": 2
+        },
+        {
+          "label": "7+ nights",
+          "value": 1
+        }
+      ]
+    },
+    "preset_1771427250593": {
+      "name": "Hydration Rating",
+      "type": "buttons",
+      "options": [
+        {
+          "label": "Low",
+          "value": 1
+        },
+        {
+          "label": "Moderate",
+          "value": 2
+        },
+        {
+          "label": "High",
+          "value": 3
+        }
+      ]
+    },
+    "preset_1771436084499": {
+      "name": "Financial",
+      "type": "buttons",
+      "options": [
+        {
+          "label": "Not at all ",
+          "value": 3
+        },
+        {
+          "label": "Normal",
+          "value": 2
+        },
+        {
+          "label": "A lot",
+          "value": 1
+        }
+      ]
+    },
+    "preset_1771436525795": {
+      "name": "LS&W Connection",
+      "type": "buttons",
+      "options": [
+        {
+          "label": "None",
+          "value": 1
+        },
+        {
+          "label": "Normal",
+          "value": 2
+        },
+        {
+          "label": "Very",
+          "value": 3
+        }
+      ]
+    },
+    "preset_1771437010136": {
+      "name": "LS&W",
+      "type": "buttons",
+      "options": [
+        {
+          "label": "Poor",
+          "value": 1
+        },
+        {
+          "label": "Normal",
+          "value": 2
+        },
+        {
+          "label": "Very good",
+          "value": 3
+        }
+      ]
+    },
+    "preset_1771438851792": {
+      "name": "Burnout 1",
+      "type": "buttons",
+      "options": [
+        {
+          "label": "Rarely",
+          "value": 3
+        },
+        {
+          "label": "Sometimes",
+          "value": 2
+        },
+        {
+          "label": "Often",
+          "value": 1
+        }
+      ]
+    },
+    "preset_1771438954579": {
+      "name": "Burnout 2",
+      "type": "buttons",
+      "options": [
+        {
+          "label": "Easy",
+          "value": 3
+        },
+        {
+          "label": "Moderate",
+          "value": 2
+        },
+        {
+          "label": "Hard",
+          "value": 1
+        }
+      ]
+    },
+    "preset_1771512424938": {
+      "name": "MW",
+      "type": "buttons",
+      "options": [
+        {
+          "label": "Rarely",
+          "value": 1
+        },
+        {
+          "label": "Sometimes",
+          "value": 2
+        },
+        {
+          "label": "Often",
+          "value": 3
+        }
+      ]
+    },
+    "preset_1771512709252": {
+      "name": "Sleep 1",
+      "type": "buttons",
+      "options": [
+        {
+          "label": "Rarely",
+          "value": 1
+        },
+        {
+          "label": "Sometimes",
+          "value": 2
+        },
+        {
+          "label": "Often",
+          "value": 3
+        }
+      ]
+    },
+    "preset_1771512797337": {
+      "name": "Sleep 2",
+      "type": "buttons",
+      "options": [
+        {
+          "label": "<6 hrs",
+          "value": 1
+        },
+        {
+          "label": "6 to 8 hrs",
+          "value": 2
+        },
+        {
+          "label": ">8 hrs",
+          "value": 3
+        }
+      ]
+    },
+    "preset_1771512915612": {
+      "name": "Sleep 3",
+      "type": "buttons",
+      "options": [
+        {
+          "label": "Rarely",
+          "value": 3
+        },
+        {
+          "label": "Sometimes",
+          "value": 2
+        },
+        {
+          "label": "Often",
+          "value": 1
+        }
+      ]
+    },
+    "preset_1771513849041": {
+      "name": "Sleep 4",
+      "type": "buttons",
+      "options": [
+        {
+          "label": "Alway5",
+          "value": 3
+        },
+        {
+          "label": "Sometimes",
+          "value": 2
+        },
+        {
+          "label": "Rarely",
+          "value": 1
+        }
+      ]
+    },
+    "preset_1771514120153": {
+      "name": "Sleep 5",
+      "type": "buttons",
+      "options": [
+        {
+          "label": "Poor",
+          "value": 1
+        },
+        {
+          "label": "Fair",
+          "value": 2
+        },
+        {
+          "label": "Good",
+          "value": 3
+        }
+      ]
+    },
+    "preset_1771524212453": {
+      "name": "Frequency Alc",
+      "type": "buttons",
+      "options": [
+        {
+          "label": "Never",
+          "value": 3
+        },
+        {
+          "label": "1-8 times",
+          "value": 2
+        },
+        {
+          "label": "9+",
+          "value": 1
+        }
+      ]
+    },
+    "preset_1771953374983": {
+      "name": "NEW LS&W Agreement",
+      "type": "buttons",
+      "options": [
+        {
+          "label": "Hard",
+          "value": 1
+        },
+        {
+          "label": "Ok",
+          "value": 2
+        },
+        {
+          "label": "Easy",
+          "value": 3
+        }
+      ]
+    }
+  },
   "categories": {
+    "lifestyle_wellbeing": {
+      "title": "LIFESTYLE & WELLBEING",
+      "description": "Looks at physical habits, nourishment, workload balance, social connections, and financial wellbeing.",
+      "subcategories": {
+        "physical_health_activity": {
+          "title": "Physical Health Habits",
+          "description": "Clear daily behaviours affecting performance.",
+          "questions": [
+            {
+              "text": "How often did you engage in structured physical activity (gym, sport, running) this month?",
+              "responseType": "frequency_5",
+              "polarity": "positive"
+            },
+            {
+              "text": "How would you rate your overall nutrition this month (meal quality & balance)?",
+              "responseType": "rating_5",
+              "polarity": "positive"
+            },
+            {
+              "text": "How consistently did you stay hydrated?",
+              "responseType": "preset_1771427250593",
+              "polarity": "positive"
+            }
+          ]
+        },
+        "nutrition_hydration_substance": {
+          "title": "Lifestyle & Routine Factors",
+          "description": "Things that disrupt recovery or consistency.",
+          "questions": [
+            {
+              "text": "Over the past month, how often did you consume alcohol?",
+              "responseType": "preset_1771524212453",
+              "polarity": "positive"
+            },
+            {
+              "text": "How often did you consume alcohol during the working week?",
+              "responseType": "preset_1771524212453",
+              "polarity": "positive"
+            },
+            {
+              "text": "Over the past month, how many nights have you spent away from home & family?",
+              "responseType": "nights_away",
+              "polarity": "positive"
+            }
+          ]
+        },
+        "workload_travel_environment": {
+          "title": "Work & Life Load",
+          "description": "Stress & external pressure.",
+          "questions": [
+            {
+              "text": "How manageable has your overall workload felt this month?",
+              "responseType": "preset_1771953374983",
+              "polarity": "positive"
+            },
+            {
+              "text": "How much have financial pressures affected you this month?",
+              "responseType": "preset_1771436084499",
+              "polarity": "positive"
+            }
+          ]
+        },
+        "social_family_financial": {
+          "title": "Social & Overall Well-Being",
+          "description": "Human side & summary indicator.",
+          "questions": [
+            {
+              "text": "How connected have you felt to your family this month?",
+              "responseType": "preset_1771436525795",
+              "polarity": "positive"
+            },
+            {
+              "text": "How connected have you felt to your work colleagues this month?",
+              "responseType": "preset_1771436525795",
+              "polarity": "positive"
+            },
+            {
+              "text": "How would you rate your overall sense of wellbeing this month?",
+              "responseType": "preset_1771437010136",
+              "polarity": "positive"
+            }
+          ]
+        }
+      },
+      "questions": []
+    },
+    "sleep": {
+      "title": "SLEEP",
+      "description": "Evaluates sleep schedule consistency, duration, awakenings, and subjective sleep quality.",
+      "questions": [
+        {
+          "text": "Over the past month, how consistent have your sleep times & duration been?",
+          "responseType": "preset_1771512709252",
+          "polarity": "positive"
+        },
+        {
+          "text": "Over the past month, how many hours did you sleep on average per night?",
+          "responseType": "preset_1771512797337",
+          "polarity": "positive"
+        },
+        {
+          "text": "Over the past month, how frequently have you woken up during the night?",
+          "responseType": "preset_1771512915612",
+          "polarity": "positive"
+        },
+        {
+          "text": "Over the past month, how often have you stayed awake all day without dozing?",
+          "responseType": "preset_1771513849041",
+          "polarity": "positive"
+        },
+        {
+          "text": "How would you rate your overall sleep quality & satisfaction?",
+          "responseType": "preset_1771514120153",
+          "polarity": "positive"
+        }
+      ]
+    },
     "burnout_assessment": {
       "title": "BURNOUT ASSESSMENT TOOL",
       "description": "Measures current burnout indicators including exhaustion, motivation, focus, and emotional regulation.",
       "questions": [
-        "I feel mentally exhausted",
-        "At the end of the day, I find it hard to recover my energy",
-        "I feel physically exhausted",
-        "I struggle to find any enthusiasm for my work",
-        "I have trouble staying focused",
-        "I have trouble concentrating",
-        "I feel unable to control my emotions",
-        "I may overreact unintentionally"
+        {
+          "text": "Over the past month how often did you feel mentally exhausted at the end of the day?",
+          "responseType": "preset_1771438851792",
+          "polarity": "positive"
+        },
+        {
+          "text": "Over the past month, how difficult was it to recover your energy after work?",
+          "responseType": "preset_1771438954579",
+          "polarity": "positive"
+        },
+        {
+          "text": "How often did you struggle to find enthusiasm for your work?",
+          "responseType": "preset_1771438851792",
+          "polarity": "positive"
+        },
+        {
+          "text": "Over the past month, how often did you have trouble staying focused?",
+          "responseType": "preset_1771438851792",
+          "polarity": "positive"
+        },
+        {
+          "text": "How often did you feel like you couldn't control your emotions or found yourself overreacting?",
+          "responseType": "preset_1771438851792",
+          "polarity": "positive"
+        }
       ]
     },
     "mental_wellbeing": {
       "title": "MENTAL WELLBEING",
       "description": "Explores day-to-day mood, optimism, clarity, relationships, and overall mental resilience.",
       "questions": [
-        "I've been feeling optimistic about the future",
-        "I've been feeling useful",
-        "I've been dealing with problems well",
-        "I've been thinking clearly",
-        "I've been feeling close to people"
-      ]
-    },
-    "sleep": {
-      "title": "SLEEP",
-      "description": "Evaluates sleep schedule consistency, duration, awakenings, and subjective sleep quality.",
-      "questions": [
-        "I've been going to sleep and waking up about the same time every day",
-        "I sleep 7-9hrs per night",
-        "I am awake for less than 30mins between the time I go to bed and the time I get out of bed",
-        "I stay awake all day without dozing",
-        "How long does it take to fall asleep?",
-        "How many nights per week do you awaken in the middle of the night",
-        "If you wake up during the night, how long are you awake for",
-        "How would you rate your sleep quality?",
-        "I am satisfied with my sleep"
-      ]
-    },
-    "lifestyle_wellbeing": {
-      "title": "LIFESTYLE & WELLBEING",
-      "description": "Looks at physical habits, nourishment, workload balance, social connections, and financial wellbeing.",
-      "subcategories": {
-        "physical_health_activity": {
-          "title": "Physical Health & Activity",
-          "description": "Focuses on frequency and structure of intentional physical exercise.",
-          "questions": [
-            "How often have you engaged in structured physical activity (gym, sport, running) this month?"
-          ]
+        {
+          "text": "Over the past month, how frequently have you felt optimistic about the future?",
+          "responseType": "preset_1771512424938",
+          "polarity": "positive"
         },
-        "nutrition_hydration_substance": {
-          "title": "Nutrition, Hydration & Substance Use",
-          "description": "Reviews nutrition quality, hydration consistency, and alcohol consumption habits.",
-          "questions": [
-            "How would you rate your overall nutrition this month (meal quality and balance)?",
-            "How consistently have you stayed hydrated each day?",
-            "How often have you consumed alcohol this month?"
-          ]
+        {
+          "text": "How regularly have you felt useful?",
+          "responseType": "preset_1771512424938",
+          "polarity": "positive"
         },
-        "workload_travel_environment": {
-          "title": "Workload, Travel & Environment",
-          "description": "Examines travel demands and how the work environment affects overall balance.",
-          "questions": [
-            "How many nights have you spent away from home this month?",
-            "How much has work-related travel away from home impacted your wellbeing?",
-            "How manageable has your overall workload felt this month?"
-          ]
+        {
+          "text": "Over the past month, how frequently have you been able to think clearly?",
+          "responseType": "preset_1771512424938",
+          "polarity": "positive"
         },
-        "social_family_financial": {
-          "title": "Social, Family & Financial Wellbeing",
-          "description": "Assesses support networks, personal time, financial stress, and holistic wellbeing.",
-          "questions": [
-            "How connected and supportive have you felt to your family or close friends?",
-            "How much time have you had for personal interests or hobbies outside work?",
-            "How much have financial pressures affected you this month?",
-            "How would you rate your overall sense of wellbeing this month?"
-          ]
+        {
+          "text": "How regularly have you felt you were dealing with problems well?",
+          "responseType": "preset_1771512424938",
+          "polarity": "positive"
         }
-      }
+      ],
+      "subcategories": {}
     }
   }
 }

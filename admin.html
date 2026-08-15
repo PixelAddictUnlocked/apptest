@@ -1,0 +1,1418 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Armour Care Admin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="admin.css?v=22" />
+  </head>
+  <body>
+    <!-- Login Screen -->
+    <div id="login-screen" class="login-screen">
+      <div class="login-container">
+        <div class="login-header">
+          <div class="login-icon">
+            <span class="ac-logo ac-logo-md">AC</span>
+          </div>
+          <h1 class="login-title">Armour Care</h1>
+          <p class="login-subtitle">Admin Portal</p>
+        </div>
+        <form id="login-form" class="login-form">
+          <div class="form-field">
+            <label for="login-armour">Armour Number</label>
+            <input
+              type="text"
+              id="login-armour"
+              placeholder="C0000-0000"
+              autocomplete="username"
+              required
+            />
+          </div>
+          <div class="form-field">
+            <label for="login-password">Password</label>
+            <input
+              type="password"
+              id="login-password"
+              placeholder="Enter password"
+              autocomplete="current-password"
+              required
+            />
+          </div>
+          <p class="login-error" data-login-error></p>
+          <button type="submit" class="login-btn">Sign In</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Admin Dashboard -->
+    <div id="admin-dashboard" class="admin-dashboard hidden">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="sidebar-header">
+          <div class="sidebar-logo">
+            <span class="ac-logo ac-logo-sm">AC</span>
+          </div>
+          <div class="sidebar-title">
+            <span class="title-main">Armour Care</span>
+            <span class="title-sub">Admin</span>
+          </div>
+        </div>
+
+        <nav class="sidebar-nav">
+          <button class="nav-item active" data-section="dashboard">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <rect x="3" y="3" width="7" height="7"></rect>
+              <rect x="14" y="3" width="7" height="7"></rect>
+              <rect x="14" y="14" width="7" height="7"></rect>
+              <rect x="3" y="14" width="7" height="7"></rect>
+            </svg>
+            <span>Dashboard</span>
+          </button>
+          <button class="nav-item" data-section="users">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+            <span>Users</span>
+          </button>
+          <button class="nav-item" data-section="submissions">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+              ></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+              <polyline points="10 9 9 9 8 9"></polyline>
+            </svg>
+            <span>Submissions</span>
+          </button>
+          <button class="nav-item perm-questions" data-section="questions">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="12" cy="12" r="10"></circle>
+              <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+              <line x1="12" y1="17" x2="12.01" y2="17"></line>
+            </svg>
+            <span>Question Builder</span>
+          </button>
+          <button
+            class="nav-item perm-notifications"
+            data-section="notifications"
+          >
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+              <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+            </svg>
+            <span>Notifications</span>
+          </button>
+          <button class="nav-item perm-security" data-section="security">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            </svg>
+            <span>Security</span>
+          </button>
+          <button class="nav-item master-only" data-section="admins">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+            <span>Admins</span>
+          </button>
+          <button class="nav-item" data-section="guide">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+            </svg>
+            <span>Guide</span>
+          </button>
+        </nav>
+
+        <div class="sidebar-footer">
+          <div class="admin-info">
+            <div class="admin-armour" data-admin-armour>-</div>
+            <div class="admin-role" data-admin-role>Admin</div>
+          </div>
+          <button class="logout-btn" data-logout>
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+              <polyline points="16 17 21 12 16 7"></polyline>
+              <line x1="21" y1="12" x2="9" y2="12"></line>
+            </svg>
+          </button>
+        </div>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <!-- Dashboard Section -->
+        <section id="section-dashboard" class="section active">
+          <div class="section-header">
+            <div>
+              <h1 class="section-title">Dashboard</h1>
+              <p class="section-subtitle" data-month-label></p>
+            </div>
+            <div class="section-actions">
+              <select class="select-input" data-dashboard-month-select></select>
+              <button class="btn btn-secondary" data-refresh-dashboard>
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <polyline points="23 4 23 10 17 10"></polyline>
+                  <polyline points="1 20 1 14 7 14"></polyline>
+                  <path
+                    d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"
+                  ></path>
+                </svg>
+                Refresh
+              </button>
+            </div>
+          </div>
+
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-icon">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                </svg>
+              </div>
+              <div class="stat-content">
+                <div class="stat-value" data-total-users>0</div>
+                <div class="stat-label">Total Users</div>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                  ></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                </svg>
+              </div>
+              <div class="stat-content">
+                <div class="stat-value" data-total-submissions>0</div>
+                <div class="stat-label">Submissions</div>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                </svg>
+              </div>
+              <div class="stat-content">
+                <div class="stat-value" data-completion-rate>0%</div>
+                <div class="stat-label">Completion Rate</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <h2 class="card-title">Team Overview</h2>
+            </div>
+            <div class="card-body">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Team</th>
+                    <th>Members</th>
+                    <th>Submitted</th>
+                    <th>Completion</th>
+                  </tr>
+                </thead>
+                <tbody data-team-stats></tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="card" style="margin-top: 24px">
+            <div class="card-header">
+              <h2 class="card-title">Team Wellbeing Radar</h2>
+              <span class="card-hint"
+                >Click a team to view their submissions</span
+              >
+            </div>
+            <div class="card-body">
+              <div class="radar-grid" data-radar-grid></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Users Section -->
+        <section id="section-users" class="section">
+          <div class="section-header">
+            <h1 class="section-title">Users</h1>
+            <div class="section-actions">
+              <select class="select-input" data-jump-to-team>
+                <option value="">Jump to team...</option>
+              </select>
+              <input
+                type="text"
+                class="search-input"
+                placeholder="Search users..."
+                data-user-search
+              />
+            </div>
+          </div>
+
+          <div data-users-container></div>
+        </section>
+
+        <!-- Submissions Section -->
+        <section id="section-submissions" class="section">
+          <div class="section-header">
+            <h1 class="section-title">Submissions</h1>
+            <div class="section-actions">
+              <select class="select-input" data-submissions-jump-to-team>
+                <option value="">Jump to team...</option>
+              </select>
+              <select class="select-input" data-month-select></select>
+              <button
+                class="btn btn-secondary"
+                data-refresh-submissions
+                title="Refresh"
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M21 2v6h-6"></path>
+                  <path d="M3 12a9 9 0 0 1 15-6.7L21 8"></path>
+                  <path d="M3 22v-6h6"></path>
+                  <path d="M21 12a9 9 0 0 1-15 6.7L3 16"></path>
+                </svg>
+              </button>
+              <button class="btn btn-secondary" data-export-csv>
+                Export CSV
+              </button>
+            </div>
+          </div>
+
+          <div data-submissions-container></div>
+        </section>
+
+        <!-- Questions Section -->
+        <section id="section-questions" class="section perm-questions">
+          <div class="section-header">
+            <h1 class="section-title">Question Builder</h1>
+            <div class="section-actions master-only">
+              <button class="btn btn-outline" data-export-questions>
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="7 10 12 15 17 10"></polyline>
+                  <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                Export
+              </button>
+              <label class="btn btn-outline btn-restore">
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="17 8 12 3 7 8"></polyline>
+                  <line x1="12" y1="3" x2="12" y2="15"></line>
+                </svg>
+                Restore
+                <input type="file" accept=".json" hidden data-restore-file />
+              </label>
+              <button class="btn btn-primary" data-save-questions>
+                Save Changes
+              </button>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-body">
+              <div class="questions-editor" data-questions-editor>
+                <p class="empty-state">Loading questions...</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Notifications Section -->
+        <section id="section-notifications" class="section perm-notifications">
+          <div class="section-header">
+            <h1 class="section-title">Notifications</h1>
+            <div class="section-actions">
+              <span class="notif-sub-count" data-sub-count
+                >0 subscribed users</span
+              >
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <h2 class="card-title">Send Notification</h2>
+            </div>
+            <div class="card-body">
+              <div class="notif-compose">
+                <div class="form-field">
+                  <label for="notif-title">Title</label>
+                  <input
+                    type="text"
+                    id="notif-title"
+                    placeholder="Notification title..."
+                    maxlength="100"
+                  />
+                </div>
+                <div class="form-field">
+                  <label for="notif-message">Message</label>
+                  <textarea
+                    id="notif-message"
+                    rows="4"
+                    placeholder="Write your message..."
+                    maxlength="500"
+                  ></textarea>
+                </div>
+                <div class="form-field">
+                  <label>Recipients</label>
+                  <div class="notif-recipient-toggle">
+                    <button
+                      class="btn btn-sm notif-rec-btn active"
+                      data-rec-type="all"
+                    >
+                      All Users
+                    </button>
+                    <button
+                      class="btn btn-sm notif-rec-btn"
+                      data-rec-type="select"
+                    >
+                      Select Users
+                    </button>
+                  </div>
+                  <div
+                    class="notif-user-select hidden"
+                    data-notif-user-select
+                  ></div>
+                </div>
+                <div class="notif-actions">
+                  <button class="btn btn-primary" data-send-notification>
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <line x1="22" y1="2" x2="11" y2="13"></line>
+                      <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                    </svg>
+                    Send Notification
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card" style="margin-top: 24px">
+            <div class="card-header">
+              <h2 class="card-title">Automated Notifications</h2>
+            </div>
+            <div class="card-body">
+              <div class="auto-notif-config" data-auto-notif-config>
+                <div class="auto-notif-section">
+                  <h3 class="auto-notif-heading">
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <rect
+                        x="3"
+                        y="4"
+                        width="18"
+                        height="18"
+                        rx="2"
+                        ry="2"
+                      ></rect>
+                      <line x1="16" y1="2" x2="16" y2="6"></line>
+                      <line x1="8" y1="2" x2="8" y2="6"></line>
+                      <line x1="3" y1="10" x2="21" y2="10"></line>
+                    </svg>
+                    New Survey Available
+                  </h3>
+                  <label class="auto-notif-row">
+                    <span class="auto-notif-label"
+                      >Enable automated survey reminder</span
+                    >
+                    <input
+                      type="checkbox"
+                      class="auto-notif-check"
+                      data-survey-enabled
+                      checked
+                    />
+                  </label>
+                  <div class="auto-notif-fields">
+                    <div class="form-field">
+                      <label>Title</label>
+                      <input
+                        type="text"
+                        data-survey-title
+                        value="New Survey Available"
+                        maxlength="100"
+                      />
+                    </div>
+                    <div class="form-field">
+                      <label>Message</label>
+                      <textarea data-survey-message rows="4" maxlength="500">
+Your monthly wellbeing survey is ready to complete. Take a few minutes to check in.</textarea
+                      >
+                    </div>
+                    <div class="auto-notif-inline">
+                      <div class="form-field">
+                        <label>Send Date</label>
+                        <div class="datetime-picker">
+                          <input type="date" data-survey-date />
+                          <button
+                            type="button"
+                            class="datetime-btn"
+                            onclick="this.previousElementSibling.showPicker()"
+                          >
+                            <svg
+                              width="18"
+                              height="18"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"
+                            >
+                              <rect
+                                x="3"
+                                y="4"
+                                width="18"
+                                height="18"
+                                rx="2"
+                                ry="2"
+                              ></rect>
+                              <line x1="16" y1="2" x2="16" y2="6"></line>
+                              <line x1="8" y1="2" x2="8" y2="6"></line>
+                              <line x1="3" y1="10" x2="21" y2="10"></line>
+                            </svg>
+                          </button>
+                        </div>
+                      </div>
+                      <div class="form-field">
+                        <label>Send Time</label>
+                        <div class="datetime-picker">
+                          <input type="time" data-survey-time value="09:00" />
+                          <button
+                            type="button"
+                            class="datetime-btn"
+                            onclick="this.previousElementSibling.showPicker()"
+                          >
+                            <svg
+                              width="18"
+                              height="18"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"
+                            >
+                              <circle cx="12" cy="12" r="10"></circle>
+                              <polyline points="12 6 12 12 16 14"></polyline>
+                            </svg>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="auto-notif-actions">
+                  <button class="btn btn-primary" data-save-auto-config>
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path
+                        d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"
+                      ></path>
+                      <polyline points="17 21 17 13 7 13 7 21"></polyline>
+                      <polyline points="7 3 7 8 15 8"></polyline>
+                    </svg>
+                    Save Configuration
+                  </button>
+                  <span class="auto-notif-saved hidden" data-auto-saved
+                    >✓ Saved</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card" style="margin-top: 24px">
+            <div class="card-header">
+              <h2 class="card-title">Notification History</h2>
+            </div>
+            <div class="card-body">
+              <div data-notif-history>
+                <p class="empty-state">No notifications sent yet.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Security Section -->
+        <section id="section-security" class="section perm-security">
+          <div class="section-header">
+            <div>
+              <h1 class="section-title">Security</h1>
+              <p class="section-subtitle">
+                Audit log &amp; activity monitoring
+              </p>
+            </div>
+            <div class="section-actions">
+              <select class="select-input" data-security-event-filter>
+                <option value="">All Events</option>
+                <option value="user_registered">Registrations</option>
+                <option value="user_login">User Logins</option>
+                <option value="login_failed">Failed Logins</option>
+                <option value="admin_login">Admin Logins</option>
+                <option value="admin_login_failed">Failed Admin Logins</option>
+                <option value="password_changed">Password Changes</option>
+                <option value="admin_created">Admin Created</option>
+                <option value="admin_updated">Admin Updated</option>
+                <option value="admin_deleted">Admin Deleted</option>
+                <option value="user_deleted">User Deleted</option>
+                <option value="submission_reset">Submission Reset</option>
+              </select>
+              <input
+                type="text"
+                class="select-input"
+                data-security-user-filter
+                placeholder="Filter by user..."
+                style="width: 160px"
+              />
+              <button class="btn btn-secondary" data-security-refresh>
+                Refresh
+              </button>
+              <button class="btn btn-danger" data-security-clear-all>
+                Clear All
+              </button>
+            </div>
+          </div>
+
+          <div class="security-summary-header">
+            <span class="security-summary-label">Stats for:</span>
+            <select class="select-input" data-security-period-filter>
+              <option value="1">Last Hour</option>
+              <option value="24" selected>Last 24 Hours</option>
+              <option value="168">Last 7 Days</option>
+              <option value="720">Last 30 Days</option>
+              <option value="0">All Time</option>
+            </select>
+          </div>
+          <div class="security-summary" data-security-summary>
+            <div class="stat-card">
+              <div class="stat-value" data-sec-total>-</div>
+              <div class="stat-label">Total Events</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-value" data-sec-failed>-</div>
+              <div class="stat-label">Failed Logins</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-value" data-sec-registrations>-</div>
+              <div class="stat-label">Registrations</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-value" data-sec-logins>-</div>
+              <div class="stat-label">User Logins</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-value" data-sec-admin-actions>-</div>
+              <div class="stat-label">Admin Actions</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-value" data-sec-ips>-</div>
+              <div class="stat-label">Unique IPs</div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-body">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Time</th>
+                    <th>Event</th>
+                    <th>User</th>
+                    <th>Details</th>
+                    <th>IP Address</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody data-security-logs></tbody>
+              </table>
+              <div class="security-empty hidden" data-security-empty>
+                <p>No security events recorded yet.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Admins Section (Master Only) -->
+        <section id="section-admins" class="section master-only">
+          <div class="section-header">
+            <h1 class="section-title">Administrators</h1>
+            <div class="section-actions">
+              <button class="btn btn-primary" data-add-admin>Add Admin</button>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-body">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Armour Number</th>
+                    <th>Role</th>
+                    <th>Teams</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody data-admins-table></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- Guide Section -->
+        <section id="section-guide" class="section">
+          <div class="section-header">
+            <div>
+              <h1 class="section-title">Admin Guide</h1>
+              <p class="section-subtitle">
+                How to use the Armour Care admin panel
+              </p>
+            </div>
+          </div>
+
+          <div class="guide-container">
+            <div class="guide-section">
+              <div class="guide-section-header">
+                <div class="guide-icon">
+                  <svg
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <rect x="3" y="3" width="7" height="7"></rect>
+                    <rect x="14" y="3" width="7" height="7"></rect>
+                    <rect x="14" y="14" width="7" height="7"></rect>
+                    <rect x="3" y="14" width="7" height="7"></rect>
+                  </svg>
+                </div>
+                <h2>Dashboard</h2>
+              </div>
+              <div class="guide-content">
+                <p>
+                  The Dashboard is your overview of the current month's
+                  wellbeing data.
+                </p>
+                <div class="guide-features">
+                  <div class="guide-feature">
+                    <strong>Summary Cards</strong>
+                    <p>
+                      Shows total registered users, submissions received this
+                      month, completion rate percentage, and the overall average
+                      wellbeing score.
+                    </p>
+                  </div>
+                  <div class="guide-feature">
+                    <strong>Team Breakdown</strong>
+                    <p>
+                      Displays a table of all teams showing the number of
+                      members, submissions, completion rate, and average score
+                      per team. Helps identify which teams need attention.
+                    </p>
+                  </div>
+                  <div class="guide-feature">
+                    <strong>Team Radar Charts</strong>
+                    <p>
+                      Visual radar charts for each team showing scores across
+                      Burnout, Mental Health, Sleep, and Lifestyle categories.
+                      Charts have colored borders indicating status (green for
+                      good, yellow for fair, red for needs attention). Click any
+                      chart to jump directly to that team's submissions.
+                    </p>
+                  </div>
+                  <div class="guide-feature">
+                    <strong>Month Selector</strong>
+                    <p>
+                      Use the dropdown in the top-right to view data from
+                      previous months. The dashboard auto-refreshes every 30
+                      seconds.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="guide-section">
+              <div class="guide-section-header">
+                <div class="guide-icon">
+                  <svg
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                  </svg>
+                </div>
+                <h2>Users</h2>
+              </div>
+              <div class="guide-content">
+                <p>Manage all registered users in the system.</p>
+                <div class="guide-features">
+                  <div class="guide-feature">
+                    <strong>User List</strong>
+                    <p>
+                      View all registered users with their Armour Number, team
+                      assignment, nickname, and registration date. A green bell
+                      icon indicates users who have subscribed to push
+                      notifications. Use the search bar to filter by Armour
+                      Number or nickname.
+                    </p>
+                  </div>
+                  <div class="guide-feature">
+                    <strong>Edit Nickname</strong>
+                    <p>
+                      Click the <em>Edit</em> button next to a user to update
+                      their display nickname. This helps identify users more
+                      easily.
+                    </p>
+                  </div>
+                  <div class="guide-feature">
+                    <strong>Delete User</strong>
+                    <p>
+                      Removes a user from the system entirely. This action
+                      cannot be undone. Their past submissions will remain in
+                      the data.
+                    </p>
+                  </div>
+                  <div class="guide-feature">
+                    <strong>Team Filtering</strong>
+                    <p>
+                      Sub-admins can only see users belonging to the teams they
+                      have been assigned. The master admin can see all users.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="guide-section">
+              <div class="guide-section-header">
+                <div class="guide-icon">
+                  <svg
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                    ></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                  </svg>
+                </div>
+                <h2>Submissions</h2>
+              </div>
+              <div class="guide-content">
+                <p>Review individual wellbeing survey submissions.</p>
+                <div class="guide-features">
+                  <div class="guide-feature">
+                    <strong>Submission List</strong>
+                    <p>
+                      Shows all users who have submitted their survey for the
+                      current month, grouped by team. Each row displays the
+                      user's overall wellbeing score with color coding (green
+                      for good, yellow for fair, red for needs attention). Click
+                      <em>View</em> to see a detailed breakdown.
+                    </p>
+                  </div>
+                  <div class="guide-feature">
+                    <strong>Jump to Team</strong>
+                    <p>
+                      Use the "Jump to team" dropdown to quickly navigate to a
+                      specific team's submissions.
+                    </p>
+                  </div>
+                  <div class="guide-feature">
+                    <strong>Wellbeing Report</strong>
+                    <p>
+                      Each submission shows a radar chart and score breakdown by
+                      category (e.g. Physical, Emotional, Social). Scores are
+                      displayed as percentages where 100% is the best outcome.
+                    </p>
+                  </div>
+                  <div class="guide-feature">
+                    <strong>Reset Submission</strong>
+                    <p>
+                      If a user needs to re-submit their survey, click
+                      <em>Reset</em> to remove their submission for the selected
+                      month. They will then be able to complete it again.
+                    </p>
+                  </div>
+                  <div class="guide-feature">
+                    <strong>Month Selector</strong>
+                    <p>
+                      Use the dropdown to view submissions from previous months.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="guide-section">
+              <div class="guide-section-header">
+                <div class="guide-icon">
+                  <svg
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                    <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                  </svg>
+                </div>
+                <h2>Question Builder</h2>
+                <span class="guide-perm-tag">Requires Permission</span>
+              </div>
+              <div class="guide-content">
+                <p>Create and manage the wellbeing survey questions.</p>
+                <div class="guide-features">
+                  <div class="guide-feature">
+                    <strong>Categories</strong>
+                    <p>
+                      Questions are organised into categories (e.g. Physical
+                      Health, Emotional Wellbeing). Each category groups related
+                      questions together and contributes to a section score on
+                      the radar chart.
+                    </p>
+                  </div>
+                  <div class="guide-feature">
+                    <strong>Adding Questions</strong>
+                    <p>
+                      Click <em>Add Question</em> within a category to create a
+                      new question. Questions can be scored normally or
+                      reverse-scored (where a lower answer indicates a better
+                      outcome).
+                    </p>
+                  </div>
+                  <div class="guide-feature">
+                    <strong>Reordering</strong>
+                    <p>
+                      Use the up/down arrows to reorder questions within a
+                      category, or reorder the categories themselves.
+                    </p>
+                  </div>
+                  <div class="guide-feature">
+                    <strong>Backup &amp; Restore</strong>
+                    <p>
+                      Use the <em>Export</em> button to download a backup of
+                      your questions as a JSON file. Use <em>Import</em> to
+                      restore from a backup.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="guide-section">
+              <div class="guide-section-header">
+                <div class="guide-icon">
+                  <svg
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"
+                    ></path>
+                    <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                  </svg>
+                </div>
+                <h2>Notifications</h2>
+                <span class="guide-perm-tag">Requires Permission</span>
+              </div>
+              <div class="guide-content">
+                <p>
+                  Send push notifications to users and manage automated
+                  reminders.
+                </p>
+                <div class="guide-features">
+                  <div class="guide-feature">
+                    <strong>Send Notification</strong>
+                    <p>
+                      Compose a title and message, then choose to send to all
+                      users or select specific recipients. Notifications are
+                      delivered via browser push notifications on their devices.
+                    </p>
+                  </div>
+                  <div class="guide-feature">
+                    <strong>Auto Survey Reminder</strong>
+                    <p>
+                      When enabled, the system automatically sends a reminder on
+                      a specific date and time you choose. Use the date and time
+                      picker to schedule when the notification should be sent.
+                    </p>
+                  </div>
+                  <div class="guide-feature">
+                    <strong>Notification History</strong>
+                    <p>
+                      View a log of all previously sent notifications, including
+                      the type, recipient count, and delivery stats.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="guide-section">
+              <div class="guide-section-header">
+                <div class="guide-icon">
+                  <svg
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <rect
+                      x="3"
+                      y="11"
+                      width="18"
+                      height="11"
+                      rx="2"
+                      ry="2"
+                    ></rect>
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                  </svg>
+                </div>
+                <h2>Security</h2>
+                <span class="guide-perm-tag">Requires Permission</span>
+              </div>
+              <div class="guide-content">
+                <p>
+                  Monitor all security-related activity across the platform.
+                </p>
+                <div class="guide-features">
+                  <div class="guide-feature">
+                    <strong>Event Log</strong>
+                    <p>
+                      A chronological record of every security event: user
+                      registrations, login attempts (successful and failed),
+                      password changes, admin management actions, user
+                      deletions, and submission resets.
+                    </p>
+                  </div>
+                  <div class="guide-feature">
+                    <strong>Summary Cards</strong>
+                    <p>
+                      Six at-a-glance metrics: total events, failed logins,
+                      registrations, user logins, admin actions, and unique IP
+                      addresses. Failed logins are highlighted in red when above
+                      zero.
+                    </p>
+                  </div>
+                  <div class="guide-feature">
+                    <strong>Time Period Filter</strong>
+                    <p>
+                      Use the "Stats for" dropdown to filter the summary cards
+                      and event log by time period: Last Hour, Last 24 Hours,
+                      Last 7 Days, Last 30 Days, or All Time.
+                    </p>
+                  </div>
+                  <div class="guide-feature">
+                    <strong>Filtering</strong>
+                    <p>
+                      Use the event type dropdown or the user search box to
+                      narrow down the log. Click <em>Refresh</em> to fetch the
+                      latest events on demand.
+                    </p>
+                  </div>
+                  <div class="guide-feature">
+                    <strong>Notification Badge</strong>
+                    <p>
+                      When you log in, a red badge appears on the Security tab
+                      if there are recent events. The badge is dismissed once
+                      you visit the Security tab.
+                    </p>
+                  </div>
+                  <div class="guide-feature">
+                    <strong>Delete Events</strong>
+                    <p>
+                      Individual events can be removed using the
+                      <em>Delete</em> button on each row. A confirmation prompt
+                      will appear before deletion.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="guide-section">
+              <div class="guide-section-header">
+                <div class="guide-icon">
+                  <svg
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"
+                    ></path>
+                  </svg>
+                </div>
+                <h2>Admins</h2>
+                <span class="guide-perm-tag">Master Only</span>
+              </div>
+              <div class="guide-content">
+                <p>
+                  Manage administrator accounts. Only the master admin can
+                  access this section.
+                </p>
+                <div class="guide-features">
+                  <div class="guide-feature">
+                    <strong>Add Admin</strong>
+                    <p>
+                      Create a new admin account with an Armour Number,
+                      password, nickname, team assignments, and permissions.
+                      Select <em>All Teams</em> to give access to every team.
+                    </p>
+                  </div>
+                  <div class="guide-feature">
+                    <strong>Edit Admin</strong>
+                    <p>
+                      Update an admin's teams, nickname, password, and
+                      permissions. You can grant or revoke access to Question
+                      Builder, Notifications, and Security.
+                    </p>
+                  </div>
+                  <div class="guide-feature">
+                    <strong>Permissions</strong>
+                    <p>
+                      Sub-admins only see the tabs they have permission for.
+                      Available permissions:
+                    </p>
+                    <ul class="guide-list">
+                      <li>
+                        <strong>Question Builder</strong> — Create and edit
+                        survey questions
+                      </li>
+                      <li>
+                        <strong>Notifications</strong> — Send push notifications
+                        and manage auto-reminders
+                      </li>
+                      <li>
+                        <strong>Security</strong> — View the security audit log
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="guide-feature">
+                    <strong>Change Password</strong>
+                    <p>
+                      Click <em>Password</em> next to any admin to change their
+                      password. Admins can also change their own password. The
+                      master admin can change any admin's password.
+                    </p>
+                  </div>
+                  <div class="guide-feature">
+                    <strong>Delete Admin</strong>
+                    <p>
+                      Remove an admin account. The master admin account cannot
+                      be deleted.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="guide-section guide-section-highlight">
+              <div class="guide-section-header">
+                <div class="guide-icon">
+                  <svg
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="12" y1="16" x2="12" y2="12"></line>
+                    <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                  </svg>
+                </div>
+                <h2>Good to Know</h2>
+              </div>
+              <div class="guide-content">
+                <div class="guide-features">
+                  <div class="guide-feature">
+                    <strong>Team Access</strong>
+                    <p>
+                      Sub-admins only see data for the teams they are assigned
+                      to. The master admin sees everything. When creating a new
+                      admin, assigning <em>All Teams</em> gives full team
+                      visibility without master privileges.
+                    </p>
+                  </div>
+                  <div class="guide-feature">
+                    <strong>Monthly Surveys</strong>
+                    <p>
+                      Each user can submit one wellbeing survey per month.
+                      Surveys reset automatically at the start of each calendar
+                      month. Users are shown their previous scores when they
+                      return.
+                    </p>
+                  </div>
+                  <div class="guide-feature">
+                    <strong>Session &amp; Security</strong>
+                    <p>
+                      Admin sessions last 7 days before requiring re-login. All
+                      passwords are securely hashed. Login attempts are
+                      rate-limited to prevent brute-force attacks. The platform
+                      enforces HTTPS and includes security headers on all
+                      responses.
+                    </p>
+                  </div>
+                  <div class="guide-feature">
+                    <strong>Push Notifications</strong>
+                    <p>
+                      Users must grant notification permission in their browser
+                      for push notifications to work. Notifications are
+                      delivered via web push and will appear even when the app
+                      is not open.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top hidden" data-back-to-top>
+      <svg
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <polyline points="18 15 12 9 6 15"></polyline>
+      </svg>
+    </button>
+
+    <!-- Modal -->
+    <div id="modal" class="modal hidden">
+      <div class="modal-backdrop" data-modal-close></div>
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title" data-modal-title>Modal</h2>
+        </div>
+        <div class="modal-body" data-modal-body></div>
+      </div>
+    </div>
+
+    <script src="admin.js?v=58"></script>
+  </body>
+</html>
