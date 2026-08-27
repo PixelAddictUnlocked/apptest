@@ -1447,7 +1447,7 @@ const server = http.createServer(async (req, res) => {
       
       // Team breakdown
       const teamStats = {};
-      const teams = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14'];
+      const teams = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15'];
       
       // Compute members/submitted/completion + section scores for a group
       function computeGroupStats(groupUsers, groupSubs) {

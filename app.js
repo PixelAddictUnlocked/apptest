@@ -494,6 +494,7 @@ const teamNames = {
   "12": "12",
   "13": "13",
   "14": "14",
+  "15": "15",
 };
 
 // Session management (only session stored locally, auth on server)
