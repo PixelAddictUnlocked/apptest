@@ -8,10 +8,10 @@ A wellbeing survey platform deployed as a Progressive Web App (PWA) at [armourca
 
 ## Live URLs
 
-| URL | Purpose |
-| --- | --- |
-| https://armourcare.uk | Main app (user signup, login, questionnaire) |
-| https://armourcare.uk/admin.html | Admin portal |
+| URL                              | Purpose                                      |
+| -------------------------------- | -------------------------------------------- |
+| https://armourcare.uk            | Main app (user signup, login, questionnaire) |
+| https://armourcare.uk/admin.html | Admin portal                                 |
 
 ---
 
@@ -53,16 +53,16 @@ backups/           Local backups of server data files
 
 ### Data files (server-side, source of truth at `/opt/armourcare/`)
 
-| File | Contents |
-| --- | --- |
-| `users.json` | Registered users (armour number, team, sub-team, bcrypt hash, nickname) |
-| `admins.json` | Admin accounts (teams/sub-team scopes, permissions, master flag) |
-| `submissions.json` | Questionnaire submissions keyed by month, then armour number |
-| `questions.json` | Questionnaire definition (categories, questions, response presets) |
-| `notifications.json` | Notification history |
-| `push-subscriptions.json` | Web Push subscriptions per user |
-| `auto-notif-config.json` | Automated notification schedule config |
-| `security-log.json` | Security event log (logins, admin actions, etc.) |
+| File                      | Contents                                                                |
+| ------------------------- | ----------------------------------------------------------------------- |
+| `users.json`              | Registered users (armour number, team, sub-team, bcrypt hash, nickname) |
+| `admins.json`             | Admin accounts (teams/sub-team scopes, permissions, master flag)        |
+| `submissions.json`        | Questionnaire submissions keyed by month, then armour number            |
+| `questions.json`          | Questionnaire definition (categories, questions, response presets)      |
+| `notifications.json`      | Notification history                                                    |
+| `push-subscriptions.json` | Web Push subscriptions per user                                         |
+| `auto-notif-config.json`  | Automated notification schedule config                                  |
+| `security-log.json`       | Security event log (logins, admin actions, etc.)                        |
 
 ---
 
@@ -78,20 +78,20 @@ backups/           Local backups of server data files
 
 ## Roles and Permissions
 
-| Role | Access |
-| --- | --- |
-| **User** | Submit surveys, view own team stats, manage push subscription |
-| **Sub-Admin** | Dashboard, users, and submissions for assigned scopes. Question Builder / Notifications / Security tabs gated by per-admin permission flags |
-| **Master Admin** | Everything, including admin management and question editing |
+| Role             | Access                                                                                                                                      |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| **User**         | Submit surveys, view own team stats, manage push subscription                                                                               |
+| **Sub-Admin**    | Dashboard, users, and submissions for assigned scopes. Question Builder / Notifications / Security tabs gated by per-admin permission flags |
+| **Master Admin** | Everything, including admin management and question editing                                                                                 |
 
 ### Admin team scoping (`teams` array in `admins.json`)
 
-| Entry | Grants |
-| --- | --- |
-| `"all"` | Every team |
-| `"5"` | All of team 5 |
-| `"2"` | All of team 2, including every sub-team |
-| `"2:a"` | Only sub-team 2A |
+| Entry   | Grants                                  |
+| ------- | --------------------------------------- |
+| `"all"` | Every team                              |
+| `"5"`   | All of team 5                           |
+| `"2"`   | All of team 2, including every sub-team |
+| `"2:a"` | Only sub-team 2A                        |
 
 Scopes can be combined, e.g. `["3", "2:a", "2:b"]`.
 
@@ -101,31 +101,31 @@ Scopes can be combined, e.g. `["3", "2:a", "2:b"]`.
 
 ### Public / user endpoints
 
-| Endpoint | Method | Purpose |
-| --- | --- | --- |
-| `/api/signup` | POST | Register (requires `subTeam` when `team` is `"2"`) |
-| `/api/login` | POST | User login, returns JWT |
-| `/api/generate-armour` | GET | Generate an unused armour number |
-| `/api/submit` | POST | Submit monthly questionnaire |
-| `/api/team-stats` | GET | Team wellbeing stats |
-| `/api/submission-status` | GET | Current month submission status |
-| `/api/vapid-public-key` | GET | Web Push public key |
-| `/api/push-subscribe` | POST | Save push subscription |
+| Endpoint                 | Method | Purpose                                            |
+| ------------------------ | ------ | -------------------------------------------------- |
+| `/api/signup`            | POST   | Register (requires `subTeam` when `team` is `"2"`) |
+| `/api/login`             | POST   | User login, returns JWT                            |
+| `/api/generate-armour`   | GET    | Generate an unused armour number                   |
+| `/api/submit`            | POST   | Submit monthly questionnaire                       |
+| `/api/team-stats`        | GET    | Team wellbeing stats                               |
+| `/api/submission-status` | GET    | Current month submission status                    |
+| `/api/vapid-public-key`  | GET    | Web Push public key                                |
+| `/api/push-subscribe`    | POST   | Save push subscription                             |
 
 ### Admin endpoints (JWT bearer token required)
 
-| Endpoint | Methods | Purpose |
-| --- | --- | --- |
-| `/api/admin/login` | POST | Admin login |
-| `/api/admin/admins` | GET/POST/PUT/DELETE | Manage admins (master only) |
-| `/api/admin/change-password` | POST | Change own/another admin's password |
-| `/api/admin/users` | GET/PUT/DELETE | List users, edit nickname/sub-team, delete |
-| `/api/admin/submissions` | GET/DELETE | View submissions, reset a submission |
-| `/api/admin/stats` | GET | Dashboard stats incl. `teamStats` and `subTeamStats` |
-| `/api/admin/questions` | GET/PUT | View / edit questionnaire (edit is master only) |
-| `/api/admin/notifications` | GET/POST/DELETE | Send and manage notifications |
-| `/api/admin/auto-notif-config` | GET/POST | Automated notification schedule |
-| `/api/admin/security-logs` | GET/DELETE | Security event log (master or `security` permission) |
+| Endpoint                       | Methods             | Purpose                                              |
+| ------------------------------ | ------------------- | ---------------------------------------------------- |
+| `/api/admin/login`             | POST                | Admin login                                          |
+| `/api/admin/admins`            | GET/POST/PUT/DELETE | Manage admins (master only)                          |
+| `/api/admin/change-password`   | POST                | Change own/another admin's password                  |
+| `/api/admin/users`             | GET/PUT/DELETE      | List users, edit nickname/sub-team, delete           |
+| `/api/admin/submissions`       | GET/DELETE          | View submissions, reset a submission                 |
+| `/api/admin/stats`             | GET                 | Dashboard stats incl. `teamStats` and `subTeamStats` |
+| `/api/admin/questions`         | GET/PUT             | View / edit questionnaire (edit is master only)      |
+| `/api/admin/notifications`     | GET/POST/DELETE     | Send and manage notifications                        |
+| `/api/admin/auto-notif-config` | GET/POST            | Automated notification schedule                      |
+| `/api/admin/security-logs`     | GET/DELETE          | Security event log (master or `security` permission) |
 
 ---
 
@@ -163,11 +163,22 @@ ssh root@172.237.111.103 'systemctl restart armourcare'  # restart app
 ssh root@172.237.111.103 'journalctl -u armourcare -f'   # tail logs
 ```
 
-### Backing up all server data manually
+### Backups
+
+**Automated (on the VPS):** a cron job runs `/opt/armourcare-backup.sh` daily at 03:00, snapshotting all data files to `/opt/armourcare-backups/<timestamp>/` with **30-day retention**.
+
+**Manual (to local machine):**
 
 ```bash
 mkdir -p backups/server_$(date +"%Y%m%d_%H%M%S") && \
 scp "root@172.237.111.103:/opt/armourcare/*.json" backups/server_<timestamp>/
+```
+
+To restore a file, copy it back and restart:
+
+```bash
+scp backups/server_<timestamp>/users.json root@172.237.111.103:/opt/armourcare/users.json
+ssh root@172.237.111.103 'systemctl restart armourcare'
 ```
 
 ---
@@ -183,5 +194,5 @@ See [SECURITY.md](SECURITY.md) for full details. Highlights:
 - Security headers (HSTS, X-Frame-Options, nosniff, etc.) on all responses
 - Path traversal protection on static file serving
 - Security event logging viewable in the admin portal
-</CodeContent>
-<parameter name="EmptyFile">false
+  </CodeContent>
+  <parameter name="EmptyFile">false
