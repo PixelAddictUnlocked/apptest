@@ -3021,13 +3021,16 @@ function showModal(title, content, wide = false) {
   } else {
     modalContent.classList.remove("modal-wide");
   }
+  modalContent.scrollTop = 0;
   modal.classList.remove("hidden");
+  document.body.style.overflow = "hidden";
 }
 
 function hideModal() {
   modal.classList.add("hidden");
   const modalContent = modal.querySelector(".modal-content");
   modalContent.classList.remove("modal-wide");
+  document.body.style.overflow = "";
 }
 
 // Use event delegation so dynamically added Cancel buttons also work
