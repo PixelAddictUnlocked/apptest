@@ -962,6 +962,10 @@ body {
   display: none;
 }
 
+.form-field.hidden {
+  display: none;
+}
+
 .form-title {
   font-size: var(--font-size-lg);
   font-weight: 600;
