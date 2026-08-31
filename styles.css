@@ -983,7 +983,7 @@ body {
   font-size: var(--font-size-xs);
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: var(--muted);
+  color: #fff;
   margin-bottom: var(--space-xs);
 }
 
@@ -1011,7 +1011,7 @@ body {
 
 .field-hint {
   font-size: var(--font-size-xs);
-  color: var(--muted);
+  color: #fff;
   margin: var(--space-xs) 0 0;
 }
 
@@ -1040,6 +1040,7 @@ body {
   align-items: center;
   justify-content: center;
   font-size: 1.5rem;
+  color: #fff;
   background: rgba(255, 255, 255, 0.05);
   border: 2px solid transparent;
   border-radius: var(--radius-md);
@@ -1057,9 +1058,7 @@ body {
 }
 
 .selected-team-label {
-  font-size: var(--font-size-sm);
-  color: var(--muted);
-  text-align: center;
+  display: none;
 }
 
 .auth-error {
@@ -1078,7 +1077,7 @@ body {
 .auth-switch {
   text-align: center;
   font-size: var(--font-size-sm);
-  color: var(--muted);
+  color: #fff;
   margin: var(--space-md) 0 0;
 }
 
