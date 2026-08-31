@@ -772,9 +772,11 @@ body {
   );
   z-index: 500;
   display: flex;
-  align-items: center;
   justify-content: center;
   padding: var(--space-lg);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
 }
 
 .auth-screen.hidden {
@@ -925,6 +927,7 @@ body {
 .auth-container {
   width: 100%;
   max-width: 360px;
+  margin: auto;
 }
 
 .auth-header {
