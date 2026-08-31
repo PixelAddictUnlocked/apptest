@@ -970,8 +970,14 @@ body {
   font-size: var(--font-size-lg);
   font-weight: 600;
   color: #fff;
-  margin: 0 0 var(--space-lg);
+  margin: calc(-1 * var(--space-lg)) calc(-1 * var(--space-lg)) var(--space-lg);
+  padding: var(--space-lg) var(--space-lg) var(--space-sm);
   text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: #0b0b0b;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
 }
 
 .form-field {
