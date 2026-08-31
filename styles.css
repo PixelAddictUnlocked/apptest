@@ -931,11 +931,13 @@ body {
 }
 
 .auth-header {
+  --auth-header-h: 88px;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: var(--space-sm);
-  height: 56px;
+  gap: 4px;
+  height: var(--auth-header-h);
   text-align: center;
   margin-bottom: var(--space-lg);
   position: sticky;
@@ -982,7 +984,7 @@ body {
   padding: var(--space-lg) var(--space-lg) var(--space-sm);
   text-align: center;
   position: sticky;
-  top: 56px;
+  top: 88px;
   z-index: 2;
   background: #0b0b0b;
   border-radius: var(--radius-lg) var(--radius-lg) 0 0;
