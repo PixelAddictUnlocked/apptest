@@ -931,8 +931,17 @@ body {
 }
 
 .auth-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  height: 56px;
   text-align: center;
-  margin-bottom: var(--space-xl);
+  margin-bottom: var(--space-lg);
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  background: #050505;
 }
 
 .auth-icon {
@@ -940,7 +949,6 @@ body {
   align-items: center;
   justify-content: center;
   color: #fff;
-  margin-bottom: var(--space-sm);
 }
 
 .auth-title {
@@ -974,7 +982,7 @@ body {
   padding: var(--space-lg) var(--space-lg) var(--space-sm);
   text-align: center;
   position: sticky;
-  top: 0;
+  top: 56px;
   z-index: 2;
   background: #0b0b0b;
   border-radius: var(--radius-lg) var(--radius-lg) 0 0;
